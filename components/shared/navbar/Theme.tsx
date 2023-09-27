@@ -24,7 +24,7 @@ const Theme = () => {
               alt="sun"
               width={20}
               height={20}
-              className="active-theme"
+              className="active-theme cursor-pointer"
             />
           ) : (
             <Image
@@ -32,7 +32,7 @@ const Theme = () => {
               alt="moon"
               width={20}
               height={20}
-              className="active-theme"
+              className="active-theme cursor-pointer"
             />
           )}
         </MenubarTrigger>
@@ -58,7 +58,7 @@ const Theme = () => {
                 className={`${mode === item.value && "active-theme"}`}
               />
               <p
-                className={`body-semibold text-light-500 ${
+                className={`body-semibold text-light-500 cursor-pointer ${
                   mode === item.value
                     ? "text-primary-500"
                     : "text-dark100_light900"
