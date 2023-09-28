@@ -13,7 +13,7 @@ const LeftSidebar = () => {
   const pathname = usePathname();
 
   return (
-    <section className="custom-scrollbar background-light900_dark200 light-border shadow-light-300 sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between overflow-y-auto border-r p-6 pt-36 dark:shadow-none max-sm:hidden lg:w-[266px]">
+    <section className="custom-scrollbar background-light900_dark200 light-border sticky left-0 top-0 flex h-screen w-fit flex-col justify-between  overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px]">
       <div className="flex flex-1 flex-col  gap-6">
         {sidebarLinks.map((item) => {
           const isActive =
@@ -26,7 +26,7 @@ const LeftSidebar = () => {
               href={item.route}
               className={`${
                 isActive
-                  ? "primary-gradient text-light-900 rounded-lg"
+                  ? "primary-gradient rounded-lg text-light-900"
                   : "text-dark300_light900"
               } flex items-center justify-start gap-4 bg-transparent p-4 `}
             >
