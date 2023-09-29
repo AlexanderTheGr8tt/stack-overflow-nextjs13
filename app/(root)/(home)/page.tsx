@@ -5,80 +5,12 @@ import NoResult from "@/components/shared/NoResult";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
+import { getQuestions } from "@/lib/actions/question.action";
 import Link from "next/link";
 
-const question = [
-  {
-    _id: "1",
-    title: "Database Design for Beginners",
-    tags: [
-      { _id: "1", name: "python" },
-      { _id: "2", name: "sql" },
-    ],
-    author: {
-      _id: "1",
-      name: "John Doe",
-      picture: "url_to_picture",
-    },
-    upvotes: 10,
-    views: 100,
-    answers: [],
-    createdAt: new Date("2021-09-01T12:00:00.000Z"),
-  },
-  {
-    _id: "2",
-    title: "Machine Learning with Python",
-    tags: [
-      { _id: "3", name: "javascript" },
-      { _id: "4", name: "typescript" },
-    ],
-    author: {
-      _id: "2",
-      name: "Jane Smith",
-      picture: "url_to_picture",
-    },
-    upvotes: 15,
-    views: 150,
-    answers: [],
-    createdAt: new Date("2021-09-02T10:30:00.000Z"),
-  },
-  {
-    _id: "3",
-    title: "Frontend Web Development",
-    tags: [
-      { _id: "5", name: "html" },
-      { _id: "6", name: "css" },
-    ],
-    author: {
-      _id: "3",
-      name: "Bob Johnson",
-      picture: "url_to_picture",
-    },
-    upvotes: 8,
-    views: 80,
-    answers: [],
-    createdAt: new Date("2021-09-03T14:45:00.000Z"),
-  },
-  {
-    _id: "4",
-    title: "Mobile App Development",
-    tags: [
-      { _id: "7", name: "android" },
-      { _id: "8", name: "ios" },
-    ],
-    author: {
-      _id: "4",
-      name: "Alice Brown",
-      picture: "url_to_picture",
-    },
-    upvotes: 12,
-    views: 120,
-    answers: [],
-    createdAt: new Date("2021-09-04T16:20:00.000Z"),
-  },
-];
+export default async function Home() {
+  const result = await getQuestions({});
 
-export default function Home() {
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -109,8 +41,8 @@ export default function Home() {
       <HomeFilters />
 
       <div className="mt-10 flex w-full flex-col gap-6 ">
-        {question.length > 0 ? (
-          question.map((question) => (
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => (
             <QuestionCard
               key={question._id}
               _id={question._id}

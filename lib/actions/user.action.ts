@@ -2,7 +2,6 @@
 
 import User from "@/database/user.model";
 import { connectToDatabase } from "../mongoose";
-import error from "next/error";
 
 export async function getUserById(params: any) {
   try {
