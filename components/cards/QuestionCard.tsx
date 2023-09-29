@@ -54,7 +54,7 @@ const QuestionCard = ({
       </div>
 
       <div className="flex-between mt-6 w-full flex-wrap gap-3">
-        <Metric
+        {/* <Metric
           imgUrl="/assets/icons/avatar.svg"
           alt="User"
           value={author.name}
@@ -62,7 +62,7 @@ const QuestionCard = ({
           textStyles="body-medium text-dark400_light700"
           href={`/profile/${author._id}`}
           isAuthor
-        />
+        /> */}
         <Metric
           imgUrl="/assets/icons/like.svg"
           alt="Upvotes"
