@@ -3,6 +3,7 @@ import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import {
+  createUser,
   // createUser,
   deleteUser,
   updateUser,
@@ -57,24 +58,26 @@ export async function POST(req: Request) {
   }
 
   const eventType = evt.type;
-  console.log(evt);
 
   if (eventType === "user.created") {
-    // const { id, email_addresses, image_url, username, first_name, last_name } =
-    //   evt.data;
+    const { id, email_addresses, image_url, username, first_name, last_name } =
+      evt.data;
 
     console.log("hello");
 
-    // // Create as new user in database
-    // const mongoUser = await createUser({
-    //   clerkId: id,
-    //   name: `${first_name}${last_name ? ` ${last_name}` : ""}`,
-    //   username: username!,
-    //   email: email_addresses[0].email_address,
-    //   picture: image_url,
-    // });
+    // Create as new user in database
+    const mongoUser = await createUser({
+      clerkId: id,
+      name: `${first_name}${last_name ? ` ${last_name}` : ""}`,
+      username: username!,
+      email: email_addresses[0].email_address,
+      picture: image_url,
+    });
 
-    // return NextResponse.json({ message: "OK", user: mongoUser });
+    console.log("user created");
+    console.log(mongoUser);
+
+    return NextResponse.json({ message: "OK", user: mongoUser });
   }
 
   if (eventType === "user.updated") {
