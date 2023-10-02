@@ -63,8 +63,6 @@ export async function POST(req: Request) {
     const { id, email_addresses, image_url, username, first_name, last_name } =
       evt.data;
 
-    console.log("hello");
-
     // Create as new user in database
     const mongoUser = await createUser({
       clerkId: id,
@@ -74,8 +72,7 @@ export async function POST(req: Request) {
       picture: image_url,
     });
 
-    console.log("user created");
-    console.log(mongoUser);
+    console.log("Profile created");
 
     return NextResponse.json({ message: "OK", user: mongoUser });
   }
@@ -96,6 +93,8 @@ export async function POST(req: Request) {
       path: `/profile$/${id}`,
     });
 
+    console.log("Profile updated");
+
     return NextResponse.json({ message: "OK", user: mongoUser });
   }
 
@@ -105,6 +104,8 @@ export async function POST(req: Request) {
     const deletedUser = await deleteUser({
       clerkId: id!,
     });
+
+    console.log("Profile deleted");
 
     return NextResponse.json({ message: "OK", user: deletedUser });
   }
