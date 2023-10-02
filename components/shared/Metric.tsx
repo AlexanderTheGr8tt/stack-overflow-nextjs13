@@ -1,4 +1,4 @@
-import { Link } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 
@@ -45,11 +45,9 @@ const Metric = ({
     </>
   );
 
-  // dfasdfdsfadsffasdfas
-
   if (href) {
     return (
-      <Link href={"href"} className="flex-center gap-1">
+      <Link href={href} className="flex-center gap-1">
         {metricContent}
       </Link>
     );

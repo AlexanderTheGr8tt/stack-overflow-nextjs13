@@ -1,8 +1,8 @@
 import Link from "next/link";
-import React from "react";
+
 import RenderTag from "../shared/RenderTag";
 import Metric from "../shared/Metric";
-import { fortmatAndDivideNumber, getTimestamp } from "@/lib/utils";
+import { formatAndDivideNumber, getTimestamp } from "@/lib/utils";
 
 interface Props {
   _id: string;
@@ -54,33 +54,33 @@ const QuestionCard = ({
       </div>
 
       <div className="flex-between mt-6 w-full flex-wrap gap-3">
-        {/* <Metric
-          imgUrl="/assets/icons/avatar.svg"
+        <Metric
+          imgUrl="/assets/icons/avatarrr.svg"
           alt="User"
           value={author.name}
           title={` - asked ${getTimestamp(createdAt)}`}
           textStyles="body-medium text-dark400_light700"
           href={`/profile/${author._id}`}
           isAuthor
-        /> */}
+        />
         <Metric
           imgUrl="/assets/icons/like.svg"
           alt="Upvotes"
-          value={fortmatAndDivideNumber(upvotes)}
+          value={formatAndDivideNumber(upvotes)}
           title="Votes"
           textStyles="small-medium text-dark400_light800"
         />
         <Metric
           imgUrl="/assets/icons/message.svg"
           alt="message"
-          value={fortmatAndDivideNumber(answers.length)}
+          value={formatAndDivideNumber(answers.length)}
           title="Answers"
           textStyles="small-medium text-dark400_light800"
         />
         <Metric
           imgUrl="/assets/icons/eye.svg"
           alt="eye"
-          value={fortmatAndDivideNumber(views)}
+          value={formatAndDivideNumber(views)}
           title="Views"
           textStyles="small-medium text-dark400_light800"
         />
