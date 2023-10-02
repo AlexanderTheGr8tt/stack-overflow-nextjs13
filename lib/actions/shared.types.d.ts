@@ -105,7 +105,7 @@ export interface GetQuestionsByTagIdParams {
 }
 
 export interface GetTopInteractedTagsParams {
-  useId: string;
+  userId: string;
   limit?: number;
 }
 

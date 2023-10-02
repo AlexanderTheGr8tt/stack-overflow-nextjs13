@@ -21,9 +21,7 @@ interface Props {
 
 const Filter = ({ filters, otherClasses, containerClasses }: Props) => {
   return (
-    <div
-      className={`relative hidden max-md:flex md:flex-col ${containerClasses}`}
-    >
+    <div className={`relative  md:flex-col ${containerClasses}`}>
       <Select>
         <SelectTrigger
           className={`${otherClasses} body-regular light-border background-light800_dark300 text-dark500_light700 border px-5 py-2.5`}
