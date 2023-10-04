@@ -10,7 +10,7 @@ import { toggleSaveQuestions } from "@/lib/actions/user.action";
 import { formatAndDivideNumber } from "@/lib/utils";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 interface Props {
   type: string;
@@ -33,6 +33,7 @@ const Votes = ({
   hasdownVoted,
   hasSaved,
 }: Props) => {
+  const [first, setFirst] = useState(true);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -96,11 +97,16 @@ const Votes = ({
   };
 
   useEffect(() => {
+    if (first) {
+      setFirst(false);
+      return;
+    }
+
     viewQuestion({
       questionId: JSON.parse(itemId),
       userId: userId ? JSON.parse(userId) : undefined,
     });
-  }, [itemId, userId, pathname, router]);
+  }, [itemId, userId, pathname, router, first]);
 
   return (
     <div className="flex gap-5">
