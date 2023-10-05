@@ -37,7 +37,9 @@ const ParseHTML = ({ data }: Props) => {
   }, []);
 
   return (
-    <div className="text-dark400_light900 w-full min-w-full">{parse(data)}</div>
+    <div className="text-dark400_light900 markdown w-full min-w-full">
+      {parse(data)}
+    </div>
   );
 };
 

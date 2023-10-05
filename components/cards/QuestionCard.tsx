@@ -3,6 +3,7 @@ import Link from "next/link";
 import RenderTag from "../shared/RenderTag";
 import Metric from "../shared/Metric";
 import { formatAndDivideNumber, getTimestamp } from "@/lib/utils";
+import { SignedIn } from "@clerk/nextjs";
 
 interface Props {
   _id: string;
@@ -20,9 +21,11 @@ interface Props {
   views: number;
   answers: Array<object>;
   createdAt: Date;
+  clerkId?: string | null;
 }
 
 const QuestionCard = ({
+  clerkId,
   _id,
   title,
   tags,
@@ -45,6 +48,8 @@ const QuestionCard = ({
             </h3>
           </Link>
         </div>
+
+        <SignedIn></SignedIn>
       </div>
 
       <div className="mt-3.5 flex flex-wrap gap-2">
